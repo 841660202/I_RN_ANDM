@@ -10,8 +10,45 @@ import {
     StyleSheet,
 } from 'react-native';
 
-import { ScrollView, Text } from 'react-native';
-import { Button, InputItem, List } from 'antd-mobile-rn';
+import {ScrollView, Text} from 'react-native';
+import {Button, InputItem, List} from 'antd-mobile-rn';
+import PopoverExample from "./components/popover";
+import DrawerExample from "./components/drawer";
+import BasicPaginationExample from "./components/pagination";
+import BasicTagExample from "./components/segment";
+import BasicTabsExample from "./components/tabs";
+import BasicTabBarExample from "./components/tabBar";
+import ButtonExample from "./components/button";
+import BasicCheckboxExample from "./components/checkbox";
+import PopupExample from "./components/datePicker";
+import DatePickerViewExample from "./components/datePickerView";
+import BasicInputItemExample from "./components/input";
+import ImagePickerExample from "./components/imgePicker";
+import PickerExample from "./components/picker";
+import PickerViewExample from "./components/pickerView";
+import BasicRadioExample from "./components/radio";
+import SearchBarDemo from "./components/searchBar";
+import BasicSliderExample from "./components/slide";
+import StepperExample from "./components/stepper";
+import SwitchExample from "./components/switch";
+import BasicTextAreaItemExample from "./components/textarea";
+import AccordionExmple from "./components/accordion";
+import BadgeExample from "./components/badge";
+import BasicCarouselExample from "./components/carouse";
+import BasicCardExample from "./components/card";
+import BasicGridExample from "./components/grid";
+import IConDemo from "./components/icon";
+import BasicListExample from "./components/list";
+import NoticeBarExample from "./components/noticBar";
+import BasicTimelineExample from "./components/steps";
+import TagExample from "./components/tag";
+import ActionSheetExample from "./components/actionsheet";
+import ActivityIndicatorExample from "./components/activityIndicator";
+import BasicModalExample from "./components/modal";
+import BasicProgressExample from "./components/process";
+import ToastExample from "./components/toast";
+import BasicSwipeActionExample from "./components/swip";
+import ResultExample from "./components/result";
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' +
@@ -22,213 +59,9 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
-    constructor(props: any) {
-        super(props);
-        this.state = {
-            value: '',
-            value1: '',
-            value2: '',
-            value3: '',
-            value4: '',
-            labelnum1: '',
-            labelnum2: '',
-            labelnum3: '',
-            text: '',
-            bankCard: '',
-            phone: '',
-            password: '',
-            number: '',
-        };
-    }
     render() {
         return (
-            <ScrollView
-                style={{ flex: 1 }}
-                automaticallyAdjustContentInsets={false}
-                showsHorizontalScrollIndicator={false}
-                showsVerticalScrollIndicator={false}
-            >
-                <List renderHeader={() => '基本'}>
-                    <InputItem
-                        clear
-                        error
-                        onErrorPress={() => alert('clicked me')}
-                        value={this.state.value}
-                        onChange={(value: any) => {
-                            this.setState({
-                                value,
-                            });
-                        }}
-                        extra="元"
-                        placeholder="有标签"
-                    >
-                        输入框
-                    </InputItem>
-                    <InputItem
-                        clear
-                        onErrorPress={() => {
-                            alert(1);
-                        }}
-                        value="不可编辑"
-                        onChange={(value: any) => {
-                            this.setState({
-                                value,
-                            });
-                        }}
-                        extra={<Text>元</Text>}
-                        placeholder="不可编辑"
-                        editable={false}
-                    >
-                        输入框
-                    </InputItem>
-                    <InputItem
-                        clear
-                        value={this.state.value1}
-                        onChange={(value: any) => {
-                            this.setState({
-                                value1: value,
-                            });
-                        }}
-                        placeholder="无标签"
-                    />
-                    <InputItem
-                        defaultValue="xx"
-                        clear
-                        placeholder="自动获取光标"
-                        autoFocus={
-                            /* TODO: https://github.com/facebook/jest/issues/3707  */ typeof jest ===
-                            'undefined'
-                        }
-                    >
-                        标题
-                    </InputItem>
-                    <InputItem
-                        clear
-                        placeholder="点击下方按钮该输入框会获取光标"
-                        ref={(el: any) => (this.inputRef = el)}
-                    >
-                        标题
-                    </InputItem>
-                    <List.Item>
-                        <Button
-                            onClick={() => {
-                                this.inputRef.focus();
-                            }}
-                            type="primary"
-                        >
-                            点击获取光标
-                        </Button>
-                    </List.Item>
-                </List>
-                <List renderHeader={() => '固定标签字数'}>
-                    <InputItem
-                        clear
-                        value={this.state.labelnum1}
-                        onChange={(value: any) => {
-                            this.setState({
-                                labelnum1: value,
-                            });
-                        }}
-                        labelNumber={2}
-                        placeholder="两个字标签"
-                    >
-                        姓名
-                    </InputItem>
-                    <InputItem
-                        clear
-                        value={this.state.labelnum2}
-                        onChange={(value: any) => {
-                            this.setState({
-                                labelnum2: value,
-                            });
-                        }}
-                        labelNumber={3}
-                        placeholder="三个字标签"
-                    >
-                        校验码
-                    </InputItem>
-                    <InputItem
-                        clear
-                        value={this.state.labelnum3}
-                        onChange={(value: any) => {
-                            this.setState({
-                                labelnum3: value,
-                            });
-                        }}
-                        labelNumber={4}
-                        placeholder="四个字标签（默认）"
-                    >
-                        四字标签
-                    </InputItem>
-                </List>
-                <List renderHeader={() => '格式'}>
-                    <InputItem
-                        clear
-                        error
-                        value={this.state.text}
-                        onChange={(value: any) => {
-                            this.setState({
-                                text: value,
-                            });
-                        }}
-                        placeholder="text"
-                    >
-                        文本输入
-                    </InputItem>
-                    <InputItem
-                        clear
-                        type="bankCard"
-                        value={this.state.bankcard}
-                        onChange={(value: any) => {
-                            this.setState({
-                                bankcard: value,
-                            });
-                        }}
-                        placeholder="bankCard"
-                    >
-                        银行卡
-                    </InputItem>
-                    <InputItem
-                        clear
-                        type="phone"
-                        value={this.state.phone}
-                        onChange={(value: any) => {
-                            this.setState({
-                                phone: value,
-                            });
-                        }}
-                        placeholder="phone"
-                    >
-                        手机号
-                    </InputItem>
-                    <InputItem
-                        clear
-                        type="password"
-                        value={this.state.password}
-                        onChange={(value: any) => {
-                            this.setState({
-                                password: value,
-                            });
-                        }}
-                        placeholder="password"
-                    >
-                        密码
-                    </InputItem>
-                    <InputItem
-                        clear
-                        type="number"
-                        value={this.state.number}
-                        onChange={(value: any) => {
-                            this.setState({
-                                number: value,
-                            });
-                        }}
-                        placeholder="number"
-                    >
-                        数字
-                    </InputItem>
-                </List>
-            </ScrollView>
+            <ResultExample/>
         );
     }
 }
